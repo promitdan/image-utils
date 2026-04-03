@@ -1,0 +1,123 @@
+.image-uploader {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+}
+
+/* Drop zone */
+.drop-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 28px 16px;
+    border: 2px dashed #55565a;
+    border-radius: 10px;
+    background-color: #2e2f30;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+    user-select: none;
+}
+
+.drop-zone:hover {
+    border-color: #7b7cf0;
+    background-color: #32333a;
+}
+
+.drop-zone--active {
+    border-color: #7b7cf0;
+    background-color: #2d2e3d;
+}
+
+.drop-zone__icon {
+    width: 36px;
+    height: 36px;
+    color: #7b7cf0;
+}
+
+.drop-zone__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.drop-zone__primary {
+    font-size: var(--main-font-size);
+    color: var(--font-color-primary);
+}
+
+.drop-zone__secondary {
+    font-size: var(--tiny-font-size);
+    color: #888;
+}
+
+/* Image list */
+.image-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.image-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background-color: #2e2f30;
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+.image-item__thumb {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.image-item__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.image-item__name {
+    font-size: var(--sub-font-size);
+    color: var(--font-color-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-item__size {
+    font-size: var(--tiny-font-size);
+    color: #888;
+}
+
+.image-item__remove {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    padding: 3px;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s;
+}
+
+.image-item__remove:hover {
+    color: #e06c75;
+    background-color: #3c2e30;
+}
+
+.image-item__remove svg {
+    width: 100%;
+    height: 100%;
+}

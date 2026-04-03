@@ -1,0 +1,64 @@
+.crop-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.crop-tool__react-crop {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #444;
+}
+
+.crop-tool__preview-img {
+    display: block;
+    width: 100%;
+}
+
+.crop-tool__btn {
+    align-self: flex-start;
+    padding: 6px 16px;
+    background-color: #7b7cf0;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: var(--sub-font-size);
+    cursor: pointer;
+}
+
+.crop-tool__btn:hover:not(:disabled) {
+    background-color: #6465d4;
+}
+
+.crop-tool__btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.crop-tool__result {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.crop-tool__result img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.crop-tool__result a {
+    align-self: flex-end;
+    padding: 6px 16px;
+    background-color: #2e2f30;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: var(--font-color-primary);
+    font-size: var(--sub-font-size);
+    text-decoration: none;
+}
+
+.crop-tool__result a:hover {
+    border-color: #7b7cf0;
+}

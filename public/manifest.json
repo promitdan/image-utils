@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Image Tools",
+  "version": "1.0",
+  "permissions": ["sidePanel", "activeTab"],
+  "side_panel": {
+    "default_path": "src/panel/index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Image Tools"
+  }
+}
