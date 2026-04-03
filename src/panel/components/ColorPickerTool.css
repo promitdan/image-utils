@@ -1,0 +1,227 @@
+.cp-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Image / eyedropper area ─────────────────── */
+
+.cp-tool__img-wrap {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    cursor: crosshair;
+}
+
+.cp-tool__img {
+    display: block;
+    width: 100%;
+    user-select: none;
+}
+
+.cp-tool__img-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    font-size: var(--tiny-font-size);
+    color: rgba(255, 255, 255, 0.85);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* ── Hover tooltip ───────────────────────────── */
+
+.cp-tool__hover-tip {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 9px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: var(--tiny-font-size);
+    font-family: monospace;
+    color: var(--text-primary);
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.cp-tool__hover-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+}
+
+/* ── Colour picker ───────────────────────────── */
+
+.cp-tool__picker {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* SV gradient area */
+.cp-tool__sv {
+    position: relative;
+    height: 150px;
+    border-radius: var(--radius-sm);
+    background: var(--hue);
+    cursor: crosshair;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.cp-tool__sv-white {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(to right, #fff, transparent);
+}
+
+.cp-tool__sv-black {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(to bottom, transparent, #000);
+}
+
+.cp-tool__sv-thumb {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Hue slider */
+.cp-tool__hue {
+    position: relative;
+    height: 12px;
+    border-radius: 6px;
+    background: linear-gradient(to right,
+        #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00
+    );
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.cp-tool__hue-thumb {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Alpha slider */
+.cp-tool__alpha {
+    position: relative;
+    height: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+    /* Checkerboard under the gradient */
+    background-image:
+        linear-gradient(to right, transparent, var(--opaque)),
+        repeating-conic-gradient(#888 0% 25%, #555 0% 50%);
+    background-size: 100% 100%, 10px 10px;
+    background-position: 0 0, 0 0;
+}
+
+.cp-tool__alpha-thumb {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Output: swatch + copy values */
+.cp-tool__output {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.cp-tool__preview-wrap {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.cp-tool__preview-checker {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-conic-gradient(#666 0% 25%, #444 0% 50%);
+    background-size: 10px 10px;
+}
+
+.cp-tool__preview {
+    position: absolute;
+    inset: 0;
+}
+
+.cp-tool__values {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cp-tool__val {
+    width: 100%;
+    padding: 5px 8px;
+    text-align: left;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: monospace;
+    font-size: var(--tiny-font-size);
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.cp-tool__val:hover {
+    border-color: var(--accent-border);
+    color: var(--text-primary);
+}
+
+.cp-tool__val--copied {
+    border-color: var(--accent-border);
+    color: var(--accent);
+}

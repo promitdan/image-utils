@@ -4,9 +4,10 @@ import ResizeTool from './ResizeTool';
 import CropTool from './CropTool';
 import MetadataTool from './MetadataTool';
 import ConvertTool from './ConvertTool';
+import ColorPickerTool from './ColorPickerTool';
 import './OperationPanel.css';
 
-const OPERATIONS = ['Base64', 'Resize', 'Crop', 'Metadata', 'Convert'];
+const OPERATIONS = ['Base64', 'Resize', 'Crop', 'Metadata', 'Convert', 'Colors'];
 
 const OperationPanel = ({ image }) => {
     const [activeOperation, setActiveOperation] = useState(null);
@@ -62,7 +63,8 @@ const OperationPanel = ({ image }) => {
             {activeOperation === 'Resize'   && <ResizeTool   image={workingImage} onResult={handleResult} />}
             {activeOperation === 'Crop'     && <CropTool     image={workingImage} onResult={handleResult} />}
             {activeOperation === 'Metadata' && <MetadataTool image={workingImage} />}
-            {activeOperation === 'Convert'  && <ConvertTool  image={workingImage} onResult={handleResult} />}
+            {activeOperation === 'Convert'  && <ConvertTool      image={workingImage} onResult={handleResult} />}
+            {activeOperation === 'Colors'   && <ColorPickerTool  image={workingImage} />}
         </div>
     );
 };
