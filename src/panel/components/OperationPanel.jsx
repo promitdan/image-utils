@@ -5,9 +5,11 @@ import CropTool from './CropTool';
 import MetadataTool from './MetadataTool';
 import ConvertTool from './ConvertTool';
 import ColorPickerTool from './ColorPickerTool';
+import RemoveBackgroundTool from './RemoveBackgroundTool';
+import FilterTool from './FilterTool';
 import './OperationPanel.css';
 
-const OPERATIONS = ['Base64', 'Resize', 'Crop', 'Metadata', 'Convert', 'Colors'];
+const OPERATIONS = ['Base64', 'Resize', 'Crop', 'Metadata', 'Convert', 'Colors', 'Remove BG', 'Filters'];
 
 const OperationPanel = ({ image }) => {
     const [activeOperation, setActiveOperation] = useState(null);
@@ -64,7 +66,9 @@ const OperationPanel = ({ image }) => {
             {activeOperation === 'Crop'     && <CropTool     image={workingImage} onResult={handleResult} />}
             {activeOperation === 'Metadata' && <MetadataTool image={workingImage} />}
             {activeOperation === 'Convert'  && <ConvertTool      image={workingImage} onResult={handleResult} />}
-            {activeOperation === 'Colors'   && <ColorPickerTool  image={workingImage} />}
+            {activeOperation === 'Colors'    && <ColorPickerTool       image={workingImage} />}
+            {activeOperation === 'Remove BG' && <RemoveBackgroundTool  image={workingImage} onResult={handleResult} />}
+            {activeOperation === 'Filters'   && <FilterTool            image={workingImage} onResult={handleResult} />}
         </div>
     );
 };

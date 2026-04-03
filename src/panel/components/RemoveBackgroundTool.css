@@ -1,0 +1,103 @@
+.rm-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Preview ─────────────────────────────────── */
+
+.rm-tool__preview-wrap {
+    position: relative;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.rm-tool__checker {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-conic-gradient(#666 0% 25%, #444 0% 50%);
+    background-size: 16px 16px;
+}
+
+.rm-tool__img {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+/* ── Tolerance slider ────────────────────────── */
+
+.rm-tool__tolerance-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: var(--sub-font-size);
+    color: var(--text-secondary);
+}
+
+.rm-tool__slider {
+    width: 100%;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+/* ── Actions ─────────────────────────────────── */
+
+.rm-tool__actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rm-tool__btn {
+    padding: 7px 18px;
+    background-color: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: var(--sub-font-size);
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.rm-tool__btn:hover {
+    opacity: 0.85;
+}
+
+.rm-tool__reimage-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background-color: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-size: var(--sub-font-size);
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.rm-tool__reimage-btn:hover {
+    background-color: rgba(138, 139, 242, 0.18);
+    border-color: var(--accent);
+}
+
+.rm-tool__actions a {
+    margin-left: auto;
+    padding: 6px 12px;
+    background-color: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: var(--sub-font-size);
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.rm-tool__actions a:hover {
+    border-color: var(--accent-border);
+    color: var(--text-primary);
+}

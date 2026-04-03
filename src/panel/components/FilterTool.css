@@ -1,0 +1,128 @@
+.filter-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Filter grid ─────────────────────────────── */
+
+.filter-tool__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.filter-tool__swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color 0.15s;
+    overflow: hidden;
+}
+
+.filter-tool__swatch:hover {
+    border-color: var(--accent-border);
+}
+
+.filter-tool__swatch--active {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.filter-tool__swatch img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+    user-select: none;
+}
+
+.filter-tool__swatch span {
+    font-size: var(--tiny-font-size);
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.filter-tool__swatch--active span {
+    color: var(--accent);
+}
+
+/* ── Full-size preview ───────────────────────── */
+
+.filter-tool__preview {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.filter-tool__preview img {
+    display: block;
+    width: 100%;
+}
+
+/* ── Actions ─────────────────────────────────── */
+
+.filter-tool__actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-tool__btn {
+    padding: 7px 18px;
+    background-color: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: var(--sub-font-size);
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.filter-tool__btn:hover {
+    opacity: 0.85;
+}
+
+.filter-tool__reimage-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background-color: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-size: var(--sub-font-size);
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.filter-tool__reimage-btn:hover {
+    background-color: rgba(138, 139, 242, 0.18);
+    border-color: var(--accent);
+}
+
+.filter-tool__actions a {
+    margin-left: auto;
+    padding: 6px 12px;
+    background-color: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: var(--sub-font-size);
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.filter-tool__actions a:hover {
+    border-color: var(--accent-border);
+    color: var(--text-primary);
+}
