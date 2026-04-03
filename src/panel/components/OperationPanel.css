@@ -4,29 +4,99 @@
     gap: 12px;
 }
 
+/* Operation buttons */
 .operation-selector {
     display: flex;
-    gap: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .operation-btn {
-    flex: 1;
-    padding: 8px;
-    background-color: #2e2f30;
-    border: 1px solid #444;
-    border-radius: 8px;
-    color: var(--font-color-primary);
-    font-size: var(--tiny-font-size);
+    flex: 1 1 calc(33.333% - 8px);
+    padding: 7px 6px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: var(--sub-font-size);
     cursor: pointer;
-    transition: border-color 0.15s, background-color 0.15s;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+    white-space: nowrap;
 }
 
 .operation-btn:hover {
-    border-color: #7b7cf0;
+    background-color: var(--surface-raised);
+    border-color: var(--accent-border);
+    color: var(--text-primary);
 }
 
 .operation-btn--active {
-    border-color: #7b7cf0;
-    background-color: #2d2e3d;
-    color: #7b7cf0;
+    background-color: var(--accent-dim);
+    border-color: var(--accent-border);
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* Reimage preview card */
+.operation-panel__reimage-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background-color: var(--surface);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 0 1px var(--accent-dim) inset;
+}
+
+.operation-panel__reimage-thumb {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent-border);
+    flex-shrink: 0;
+}
+
+.operation-panel__reimage-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+}
+
+.operation-panel__reimage-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--sub-font-size);
+    font-weight: 500;
+    color: var(--accent);
+}
+
+.operation-panel__reimage-sub {
+    font-size: var(--tiny-font-size);
+    color: var(--text-muted);
+}
+
+.operation-panel__reset-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 3px;
+    background: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s;
+}
+
+.operation-panel__reset-btn:hover {
+    color: var(--danger);
+    background-color: var(--danger-dim);
 }

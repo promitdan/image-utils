@@ -1,14 +1,14 @@
 .crop-tool {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .crop-tool__react-crop {
     width: 100%;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     overflow: hidden;
-    border: 1px solid #444;
+    border: 1px solid var(--border);
 }
 
 .crop-tool__preview-img {
@@ -18,21 +18,23 @@
 
 .crop-tool__btn {
     align-self: flex-start;
-    padding: 6px 16px;
-    background-color: #7b7cf0;
+    padding: 7px 18px;
+    background-color: var(--accent);
     border: none;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     color: #fff;
     font-size: var(--sub-font-size);
+    font-weight: 500;
     cursor: pointer;
+    transition: opacity 0.15s;
 }
 
 .crop-tool__btn:hover:not(:disabled) {
-    background-color: #6465d4;
+    opacity: 0.85;
 }
 
 .crop-tool__btn:disabled {
-    opacity: 0.4;
+    opacity: 0.35;
     cursor: default;
 }
 
@@ -44,21 +46,48 @@
 
 .crop-tool__result img {
     width: 100%;
-    border-radius: 8px;
-    border: 1px solid #444;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    display: block;
+}
+
+.crop-tool__result-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.crop-tool__reimage-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background-color: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-size: var(--sub-font-size);
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.crop-tool__reimage-btn:hover {
+    background-color: rgba(138, 139, 242, 0.18);
+    border-color: var(--accent);
 }
 
 .crop-tool__result a {
-    align-self: flex-end;
-    padding: 6px 16px;
-    background-color: #2e2f30;
-    border: 1px solid #444;
-    border-radius: 6px;
-    color: var(--font-color-primary);
+    padding: 6px 12px;
+    background-color: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
     font-size: var(--sub-font-size);
     text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
 }
 
 .crop-tool__result a:hover {
-    border-color: #7b7cf0;
+    border-color: var(--accent-border);
+    color: var(--text-primary);
 }

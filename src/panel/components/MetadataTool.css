@@ -1,0 +1,28 @@
+.metadata-tool__loading {
+    font-size: var(--tiny-font-size);
+    color: var(--text-muted);
+}
+
+.metadata-tool__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--sub-font-size);
+}
+
+.metadata-tool__row:not(:last-child) td {
+    border-bottom: 1px solid var(--border);
+}
+
+.metadata-tool__label {
+    padding: 7px 10px 7px 0;
+    color: var(--text-muted);
+    white-space: nowrap;
+    vertical-align: top;
+    width: 40%;
+}
+
+.metadata-tool__value {
+    padding: 7px 0;
+    color: var(--text-primary);
+    word-break: break-word;
+}

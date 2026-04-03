@@ -5,10 +5,26 @@
 }
 
 :root {
-  --main-font-size: 16px;
-  --sub-font-size: 14px;
-  --tiny-font-size: 12px;
-  --font-color-primary: #d2d2e0;
+  --bg:              #1b1c20;
+  --surface:         #242529;
+  --surface-raised:  #2c2d33;
+  --border:          #35363c;
+  --accent:          #8a8bf2;
+  --accent-dim:      rgba(138, 139, 242, 0.1);
+  --accent-border:   rgba(138, 139, 242, 0.4);
+  --text-primary:    #ddddf0;
+  --text-secondary:  #86869e;
+  --text-muted:      #50505e;
+  --danger:          #e06c75;
+  --danger-dim:      rgba(224, 108, 117, 0.08);
+
+  --main-font-size: 14px;
+  --sub-font-size:  13px;
+  --tiny-font-size: 11px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
 }
 
 html, body, #root {
@@ -19,5 +35,13 @@ html, body, #root {
 .app {
   height: 100%;
   width: 100%;
-  color: var(--font-color-primary);
+  color: var(--text-primary);
+}
+
+.result-label {
+  font-size: var(--tiny-font-size);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
