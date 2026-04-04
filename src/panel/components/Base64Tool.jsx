@@ -108,8 +108,12 @@ const Base64Tool = ({ image, onResult }) => {
                             <div className="base64-tool__result-actions">
                                 <button className="base64-tool__reimage-btn" onClick={() => onResult(decodedUrl)}>
                                     {REIMAGE_ICON} Reimage
+                                <span className="reimage-info" data-tip="Sets this result as your working image for further edits">ⓘ</span>
                                 </button>
-                                <a href={decodedUrl} download="decoded.png">Download</a>
+                                <a className="btn-download" href={decodedUrl} download="decoded.png">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 16l-4-4m4 4l4-4m-4 4V4M4 20h16"/></svg>
+                                    Download
+                                </a>
                             </div>
                         </div>
                     )}

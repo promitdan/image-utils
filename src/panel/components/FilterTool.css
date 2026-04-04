@@ -57,6 +57,9 @@
 /* ── Full-size preview ───────────────────────── */
 
 .filter-tool__preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     overflow: hidden;
@@ -64,7 +67,9 @@
 
 .filter-tool__preview img {
     display: block;
-    width: 100%;
+    max-width: 75%;
+    width: auto;
+    object-fit: contain;
 }
 
 /* ── Actions ─────────────────────────────────── */
@@ -110,19 +115,3 @@
     border-color: var(--accent);
 }
 
-.filter-tool__actions a {
-    margin-left: auto;
-    padding: 6px 12px;
-    background-color: var(--surface-raised);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text-secondary);
-    font-size: var(--sub-font-size);
-    text-decoration: none;
-    transition: border-color 0.15s, color 0.15s;
-}
-
-.filter-tool__actions a:hover {
-    border-color: var(--accent-border);
-    color: var(--text-primary);
-}

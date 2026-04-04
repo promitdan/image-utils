@@ -8,6 +8,9 @@
 
 .rm-tool__preview-wrap {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     overflow: hidden;
@@ -22,7 +25,9 @@
 
 .rm-tool__img {
     display: block;
-    width: 100%;
+    max-width: 75%;
+    width: auto;
+    object-fit: contain;
     position: relative;
 }
 
@@ -85,19 +90,3 @@
     border-color: var(--accent);
 }
 
-.rm-tool__actions a {
-    margin-left: auto;
-    padding: 6px 12px;
-    background-color: var(--surface-raised);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text-secondary);
-    font-size: var(--sub-font-size);
-    text-decoration: none;
-    transition: border-color 0.15s, color 0.15s;
-}
-
-.rm-tool__actions a:hover {
-    border-color: var(--accent-border);
-    color: var(--text-primary);
-}

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "ProImage+",
-  "description": "A powerful image toolkit — resize, crop, and convert images to Base64, all without leaving your browser.",
+  "name": "ImgLab",
+  "description": "A powerful all-in-one image toolkit — resize, crop, convert formats, extract colors, remove backgrounds, and encode to Base64, all without leaving your browser.",
   "version": "1.0",
   "permissions": ["sidePanel", "activeTab"],
   "side_panel": {
@@ -11,16 +11,14 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "ProImage+",
+    "default_title": "ImgLab",
     "default_icon": {
-      "16": "logo_16.png",
       "32": "logo_32.png",
       "48": "logo_48.png",
       "128": "logo_128.png"
     }
   },
   "icons": {
-    "16": "logo_16.png",
     "32": "logo_32.png",
     "48": "logo_48.png",
     "64": "logo_64.png",

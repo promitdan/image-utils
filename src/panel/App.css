@@ -5,9 +5,9 @@
 }
 
 :root {
-  --bg:              #1b1c20;
-  --surface:         #242529;
-  --surface-raised:  #2c2d33;
+  --bg:              #1b1c22;
+  --surface:         #242630;
+  --surface-raised:  #2c2e3a;
   --border:          #35363c;
   --accent:          #8a8bf2;
   --accent-dim:      rgba(138, 139, 242, 0.1);
@@ -18,9 +18,9 @@
   --danger:          #e06c75;
   --danger-dim:      rgba(224, 108, 117, 0.08);
 
-  --main-font-size: 14px;
-  --sub-font-size:  13px;
-  --tiny-font-size: 11px;
+  --main-font-size: 16px;
+  --sub-font-size:  14px;
+  --tiny-font-size: 12px;
 
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -30,6 +30,10 @@
 html, body, #root {
   height: 100%;
   width: 100%;
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(138, 139, 242, 0.13) 0%, transparent 52%),
+    radial-gradient(ellipse at 82% 85%, rgba(110, 60, 200, 0.09) 0%, transparent 48%),
+    #191a1f;
 }
 
 .app {
@@ -39,9 +43,108 @@ html, body, #root {
 }
 
 .result-label {
-  font-size: var(--tiny-font-size);
+  font-size: var(--main-font-size);
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+/* ── Size delta (before → after file size) ──── */
+.size-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--tiny-font-size);
+}
+
+.size-delta__from {
+  color: var(--text-muted);
+}
+
+.size-delta__arrow {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.size-delta__to {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.size-delta__pct {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.size-delta__pct--smaller {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.12);
+}
+
+.size-delta__pct--larger {
+  color: var(--danger);
+  background: var(--danger-dim);
+}
+
+/* ── Reimage info tooltip ────────────────────── */
+.reimage-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: var(--accent);
+  opacity: 0.7;
+  cursor: default;
+  position: relative;
+}
+
+/* ── Download button (global, used in all tools) ── */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: var(--sub-font-size);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-download:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+.reimage-info::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
+  font-size: var(--tiny-font-size);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 100;
+}
+
+.reimage-info:hover::after {
+  opacity: 1;
 }

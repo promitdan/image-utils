@@ -41,9 +41,38 @@
 
 .convert-tool__quality-header {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
     font-size: var(--sub-font-size);
     color: var(--text-secondary);
+}
+
+.convert-tool__quality-presets {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.convert-tool__quality-preset-btn {
+    padding: 2px 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: var(--tiny-font-size);
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+.convert-tool__quality-preset-btn:hover {
+    border-color: var(--accent-border);
+    color: var(--text-primary);
+}
+
+.convert-tool__quality-preset-btn--active {
+    background: var(--accent-dim);
+    border-color: var(--accent-border);
+    color: var(--accent);
 }
 
 .convert-tool__quality-val {
@@ -77,11 +106,14 @@
 .convert-tool__result {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 8px;
 }
 
 .convert-tool__result img {
-    width: 100%;
+    max-width: 75%;
+    width: auto;
+    object-fit: contain;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     display: block;
@@ -123,18 +155,3 @@
     border-color: var(--accent);
 }
 
-.convert-tool__result-actions a {
-    padding: 6px 12px;
-    background-color: var(--surface-raised);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text-secondary);
-    font-size: var(--sub-font-size);
-    text-decoration: none;
-    transition: border-color 0.15s, color 0.15s;
-}
-
-.convert-tool__result-actions a:hover {
-    border-color: var(--accent-border);
-    color: var(--text-primary);
-}
