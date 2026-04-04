@@ -121,7 +121,7 @@ const ConvertTool = ({ image, onResult }) => {
                         )}
                         <div className="convert-tool__result-actions">
                             <button className="convert-tool__reimage-btn" onClick={() => onResult(result.url)}>
-                                {REIMAGE_ICON} Reimage
+                                {REIMAGE_ICON} Re-Image
                                 <span className="reimage-info" data-tip="Sets this result as your working image for further edits">ⓘ</span>
                             </button>
                             <a className="btn-download" href={result.url} download={`converted.${result.ext}`}>

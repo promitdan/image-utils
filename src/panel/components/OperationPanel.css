@@ -85,47 +85,52 @@
     opacity: 1;
 }
 
-/* ── Reimaged banner (top of tool workspace) ─── */
-.workspace__reimage-banner {
+/* ── Version cards (Original / Re-Image) ────── */
+.workspace__version-cards {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+}
+
+.workspace__version-card {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 7px 12px;
-    background: var(--accent-dim);
-    border-bottom: 1px solid var(--accent-border);
-    flex-shrink: 0;
-}
-
-.workspace__reimage-thumb {
-    width: 24px;
-    height: 24px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1.5px solid var(--accent-border);
-    flex-shrink: 0;
-}
-
-.workspace__reimage-label {
-    flex: 1;
+    gap: 7px;
+    padding: 5px 8px;
+    background: var(--surface-raised);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+    color: var(--text-secondary);
     font-size: var(--tiny-font-size);
-    font-weight: 500;
+}
+
+.workspace__version-card:hover {
+    border-color: var(--accent-border);
+    color: var(--text-primary);
+}
+
+.workspace__version-card--active {
+    border-color: var(--accent);
+    background: var(--accent-dim);
     color: var(--accent);
 }
 
-.workspace__reimage-reset {
-    font-size: var(--tiny-font-size);
-    color: var(--text-muted);
-    background: none;
-    border: 1px solid var(--border);
+.workspace__version-card-thumb {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
     border-radius: var(--radius-sm);
-    padding: 2px 8px;
-    cursor: pointer;
-    transition: color 0.15s, border-color 0.15s;
+    flex-shrink: 0;
 }
 
-.workspace__reimage-reset:hover {
-    color: var(--danger);
-    border-color: var(--danger);
+.workspace__version-card-label {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ── Right main ──────────────────────────────── */

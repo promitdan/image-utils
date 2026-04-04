@@ -107,7 +107,7 @@ const Base64Tool = ({ image, onResult }) => {
                             <img src={decodedUrl} alt="Decoded" />
                             <div className="base64-tool__result-actions">
                                 <button className="base64-tool__reimage-btn" onClick={() => onResult(decodedUrl)}>
-                                    {REIMAGE_ICON} Reimage
+                                    {REIMAGE_ICON} Re-Image
                                 <span className="reimage-info" data-tip="Sets this result as your working image for further edits">ⓘ</span>
                                 </button>
                                 <a className="btn-download" href={decodedUrl} download="decoded.png">

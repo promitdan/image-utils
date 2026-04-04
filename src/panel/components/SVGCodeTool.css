@@ -1,0 +1,99 @@
+.svg-code-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.svg-code-tool__preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.svg-code-tool__preview-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    background: repeating-conic-gradient(#2a2b33 0% 25%, transparent 0% 50%) 0 0 / 14px 14px;
+    min-height: 80px;
+}
+
+.svg-code-tool__preview-img {
+    max-width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    display: block;
+}
+
+.svg-code-tool__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.svg-code-tool__reimage-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: var(--sub-font-size);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    position: relative;
+}
+
+.svg-code-tool__reimage-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent-border);
+}
+
+.svg-code-tool__editor-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.svg-code-tool__editor {
+    width: 100%;
+    min-height: 180px;
+    background: var(--surface-raised);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: 'Consolas', 'Menlo', 'Monaco', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 10px 12px;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.svg-code-tool__editor:focus {
+    border-color: var(--accent-border);
+}
+
+.svg-code-tool__editor--error {
+    border-color: var(--danger) !important;
+}
+
+.svg-code-tool__error-msg {
+    font-size: var(--tiny-font-size);
+    color: var(--danger);
+}
+
+.svg-code-tool__unsupported {
+    color: var(--text-muted);
+    font-size: var(--sub-font-size);
+    text-align: center;
+    padding: 32px 16px;
+}

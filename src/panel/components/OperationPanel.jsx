@@ -7,6 +7,7 @@ import ConvertTool from './ConvertTool';
 import ColorPickerTool from './ColorPickerTool';
 import RemoveBackgroundTool from './RemoveBackgroundTool';
 import FilterTool from './FilterTool';
+import SVGCodeTool from './SVGCodeTool';
 import './OperationPanel.css';
 
 import cropIcon     from '../../assets/icons/crop.png';
@@ -16,7 +17,8 @@ import filtersIcon  from '../../assets/icons/filters.png';
 import colorsIcon   from '../../assets/icons/colors.png';
 import convertIcon  from '../../assets/icons/convert.png';
 import base64Icon   from '../../assets/icons/base64.png';
-import metadataIcon from '../../assets/icons/metadata.png';
+import metadataIcon  from '../../assets/icons/metadata.png';
+import svgCodeIcon   from '../../assets/icons/svg_code.png';
 
 const SECTIONS = [
     {
@@ -45,6 +47,7 @@ const SECTIONS = [
         label: 'Info',
         tools: [
             { id: 'Metadata', icon: metadataIcon },
+            { id: 'SVG Code', icon: svgCodeIcon },
         ],
     },
 ];
@@ -61,14 +64,28 @@ const formatSize = (bytes) => {
     return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 };
 
+const sizeOf = (url) => {
+    if (!url.startsWith('data:')) return null;
+    const rest = url.slice(url.indexOf(',') + 1);
+    if (url.includes(';base64,')) return Math.round(atob(rest).length);
+    return new Blob([decodeURIComponent(rest)]).size;
+};
+
 const OperationPanel = ({ image, onReplace, onRemove }) => {
     const [activeOperation, setActiveOperation] = useState(null);
-    const [workingImage, setWorkingImage]        = useState(image);
+    const [reimagedUrl, setReimagedUrl]          = useState(null);
+    const [selectedVersion, setSelectedVersion]  = useState('original');
     const [isDraggingOver, setIsDraggingOver]    = useState(false);
     const replaceInputRef = useRef(null);
 
-    const handleResult = (url) => setWorkingImage({ url });
-    const handleReset  = () => setWorkingImage(image);
+    const workingImage = selectedVersion === 'reimaged' && reimagedUrl
+        ? { url: reimagedUrl }
+        : image;
+
+    const handleResult = (url) => {
+        setReimagedUrl(url);
+        setSelectedVersion('reimaged');
+    };
 
     const handleDrop = (e) => {
         e.preventDefault();
@@ -79,7 +96,8 @@ const OperationPanel = ({ image, onReplace, onRemove }) => {
     const handleDragOver  = (e) => { e.preventDefault(); setIsDraggingOver(true); };
     const handleDragLeave = (e) => { if (!e.currentTarget.contains(e.relatedTarget)) setIsDraggingOver(false); };
 
-    const isModified = workingImage.url !== image.url;
+    const displayName = selectedVersion === 'reimaged' ? 'Re-Image' : image.name;
+    const displaySize = selectedVersion === 'reimaged' ? sizeOf(reimagedUrl) : image.size;
 
     return (
         <div className="workspace">
@@ -130,12 +148,12 @@ const OperationPanel = ({ image, onReplace, onRemove }) => {
                         onClick={() => replaceInputRef.current.click()}
                         title="Click to change image"
                     >
-                        <img className="workspace__image" src={workingImage.url} alt={image.name} />
+                        <img className="workspace__image" src={workingImage.url} alt={displayName} />
                         <div className="workspace__image-change-hint">Click to change</div>
                     </div>
                     <div className="workspace__image-meta">
-                        <span className="workspace__image-name" title={image.name}>{image.name}</span>
-                        {image.size && <span className="workspace__image-size">{formatSize(image.size)}</span>}
+                        <span className="workspace__image-name" title={displayName}>{displayName}</span>
+                        {displaySize && <span className="workspace__image-size">{formatSize(displaySize)}</span>}
                         <button
                             className="workspace__image-remove"
                             onClick={onRemove}
@@ -144,18 +162,25 @@ const OperationPanel = ({ image, onReplace, onRemove }) => {
                             {TRASH_ICON}
                         </button>
                     </div>
+                    {reimagedUrl && (
+                        <div className="workspace__version-cards">
+                            <button
+                                className={`workspace__version-card ${selectedVersion === 'original' ? 'workspace__version-card--active' : ''}`}
+                                onClick={() => setSelectedVersion('original')}
+                            >
+                                <img src={image.url} alt="Original" className="workspace__version-card-thumb" />
+                                <span className="workspace__version-card-label">Original</span>
+                            </button>
+                            <button
+                                className={`workspace__version-card ${selectedVersion === 'reimaged' ? 'workspace__version-card--active' : ''}`}
+                                onClick={() => setSelectedVersion('reimaged')}
+                            >
+                                <img src={reimagedUrl} alt="Re-Image" className="workspace__version-card-thumb" />
+                                <span className="workspace__version-card-label">Re-Image</span>
+                            </button>
+                        </div>
+                    )}
                 </div>
-
-                {/* Reimaged banner */}
-                {isModified && (
-                    <div className="workspace__reimage-banner">
-                        <img src={workingImage.url} alt="Modified" className="workspace__reimage-thumb" />
-                        <span className="workspace__reimage-label">Working on reimaged version</span>
-                        <button className="workspace__reimage-reset" onClick={handleReset} title="Reset to original">
-                            Reset
-                        </button>
-                    </div>
-                )}
 
                 {/* Tool content */}
                 {activeOperation ? (
@@ -168,6 +193,7 @@ const OperationPanel = ({ image, onReplace, onRemove }) => {
                         {activeOperation === 'Convert'       && <ConvertTool          image={workingImage} onResult={handleResult} />}
                         {activeOperation === 'Base64'        && <Base64Tool           image={workingImage} onResult={handleResult} />}
                         {activeOperation === 'Metadata'      && <MetadataTool         image={workingImage} />}
+                        {activeOperation === 'SVG Code'      && <SVGCodeTool          image={workingImage} onResult={handleResult} />}
                     </div>
                 ) : (
                     <div className="workspace__placeholder">

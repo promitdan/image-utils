@@ -23,7 +23,7 @@ const MainPage = () => {
                 <img src="/logo_128.png" alt="ImgLab" className="app-header__logo" />
                 <div className="app-header__text">
                     <span className="app-header__name">ImgLab</span>
-                    <span className="app-header__tagline">Image toolkit</span>
+                    <span className="app-header__tagline">Edit, transform, and optimize images in one flow</span>
                 </div>
             </header>
 

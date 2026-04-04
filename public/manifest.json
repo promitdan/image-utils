@@ -4,6 +4,9 @@
   "description": "A powerful all-in-one image toolkit — resize, crop, convert formats, extract colors, remove backgrounds, and encode to Base64, all without leaving your browser.",
   "version": "1.0",
   "permissions": ["sidePanel", "activeTab"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
   "side_panel": {
     "default_path": "src/panel/index.html"
   },

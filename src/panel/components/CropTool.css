@@ -75,6 +75,7 @@
 
 .crop-tool__result img {
     max-width: 75%;
+    min-width: 50%;
     width: auto;
     object-fit: contain;
     border-radius: var(--radius-md);
